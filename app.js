@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 // const blogposts = [];
 //mongodb+srv://admin-varun:<password>@cluster1.o6fixn6.mongodb.net/
-mongoose.connect("mongodb+srv://admin-varun:Test-123@cluster1.o6fixn6.mongodb.net/blogDB", {
+mongoose.connect("mongodb+srv://<Connect your own MongoDB here>/blogDB", {
   useNewUrlParser: true,
 });
 
@@ -90,15 +90,7 @@ app.post("/compose",(req,res)=>{
 
 
 app.get('/blogposts/:subpage',(req,res)=>{
-  //let found = false;
-  // for(let i=0;i<blogposts.length;i++){
-  //   if(ldash.lowerCase(blogposts[i].title) == ldash.lowerCase(req.params.subpage)){
-  //     console.log("Match Found!");
-  //     res.render("post",{ blogtitle : blogposts[i].title, blogtext : blogposts[i].text });
-  //     found = true;
-  //     break; 
-  //   }
-  // }
+
 
   bloglist.findOne({ [ldash.lowerCase(titlehead)]: ldash.lowerCase(req.params.subpage) }, function (err, arr) {
     if (err) {
